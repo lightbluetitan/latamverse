@@ -1,0 +1,253 @@
+---
+title: "Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Latamverse)
+```
+
+# Introduction
+
+The **`Latamverse`** is a metapackage that brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from **Argentina**, **Brazil**, **Chile**, **Colombia**, **Mexico**, and **Peru**. It integrates both real-time and historical data retrieved through public RESTful APIs, such as *Nager.Date*, *World Bank API*, and *REST Countries API*, while also offering extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.  
+
+The `Latamverse` package installs and attaches six core subpackages. The first is **ArgentinAPI**, which provides APIs functions and curated datasets for **Argentina**, including resources on exchange rates, inflation, political figures, and national holidays. The second is **BrazilDataAPI**, which offers APIs functions and curated datasets for **Brazil**, with data on postal codes, banks, economic indicators, holidays, and company registrations. The third is **ChileDataAPI**, focused on **Chile**, covering financial indicators such as UF, UTM, Dollar, Euro, Yen, Copper, Bitcoin, the IPSA index, and national holidays. The fourth is **ColombiAPI**, which provides APIs functions and curated datasets for **Colombia**, featuring geographic locations, cultural attractions, economic indicators, demographic data, and national holidays. The fifth is **MexicoDataAPI**, which delivers APIs functions and curated datasets for **Mexico**, including economic indicators, population, literacy rates, unemployment, holidays, air quality, and state income surveys. Finally, **PeruAPIs** offers APIs functions and curated datasets for **Peru**, covering economic indicators, demographics, national holidays, administrative divisions, electoral data, and biodiversity.  
+ 
+## Installation
+
+To install the `Latamverse` package, use the following:
+
+```{r install_package, eval=FALSE}
+
+# Install from CRAN 
+
+install.packages("Latamverse")
+
+# Then load the package:
+
+library(Latamverse)
+
+
+```
+
+
+## Using the Latamverse() Function
+
+Once the package is loaded, you can call the `Latamverse()`  function to display the list of included packages and their versions:
+
+```{r latamverse_function, eval=FALSE}
+
+Latamverse()
+
+```
+
+
+## Important Note on Detaching Packages
+
+`Latamverse` imports and depends on several subpackages. Therefore, you cannot detach an individual subpackage (like PeruAPIs) while **Latamverse** is still loaded.
+
+### Example of an Error
+
+
+```{r detach, eval=FALSE}
+
+# This will raise an error
+
+detach("package:PeruAPIs", unload = TRUE)
+
+```
+
+## Correct Way to Detach
+
+To properly unload a subpackage, you must first detach `Latamverse`:
+
+```{r detach_way, eval=FALSE}
+
+# First detach the metapackage
+detach("package:Latamverse", unload = TRUE)
+
+# Now you can safely detach the subpackage
+detach("package:PeruAPIs", unload = TRUE)
+
+```
+
+By installing the `Latamverse` package this will attach the following packages to your R session:
+
+- `ArgentinAPI`
+
+- `BrazilDataAPI`
+
+- `ChileDataAPI`
+
+- `ColombiAPI`
+
+- `MexicoDataAPI`
+
+- `PeruAPIs`
+
+
+## Included Packages in the Latamverse
+
+### ArgentinAPI
+
+The `ArgentinAPI` package provides a comprehensive and unified interface to access open data about **Argentina** from multiple public RESTful APIs, including **ArgentinaDatos API**, **REST Countries API**, and **World Bank API**. Through these sources, users can easily retrieve information on exchange rates, inflation, political figures, national holidays, economic indicators, and general country-level statistics.
+
+In addition to API-access functions, the package includes a collection of curated datasets covering diverse domains such as economic indicators, biodiversity, agriculture, human rights, genetic data, and consumer prices.
+
+#### Some ArgentinAPI Functions
+
+ - `get_dollar_exchange_rates()` – Retrieves the most recent exchange rates for different dollar markets (official, blue, MEP, CCL) from the ArgentinaDatos API.
+
+- `get_presidential_events()` – Retrieves a list of official presidential events from the ArgentinaDatos API.
+
+- `get_argentina_child_mortality()`: Get Argentina’s Under-5 Mortality Rate data from the World Bank.
+
+### Some ArgentinAPI Datasets
+
+- `corn_nitrogen_df`: Argentina Corn Yield & Nitrogen Data
+A data frame with yield monitor data from a corn field in Argentina, including variables such as nitrogen application, yield, topography, and block replicates.
+
+- `STRs_argentina_list`: STRs Allelic Frequencies from Argentina
+A list of allelic frequencies for 24 Short Tandem Repeat (STR) genetic markers collected from different populations across Argentina.
+
+### BrazilDataAPI
+
+The `BrazilDataAPI` package provides a unified interface to access open data from the **BrasilAPI**, **REST Countries API**, **Nager.Date API**, and **World Bank API**, with a focus on *Brazil*. It allows users to easily retrieve up-to-date information on postal codes, banks, economic indicators, holidays, company registrations, international country-level data, public holidays information, and economic development data relevant to *Brazil*.
+
+In addition to API-access functions, the package includes a collection of curated datasets related to *Brazil*, covering diverse domains such as demographics (male and female population by state and year), river levels in *Manaus*, environmental emission factors in *São Paulo*, Brazilian film festivals, and historical yellow fever outbreaks.
+
+#### Some BrazilDataAPI Functions
+
+- `get_country_info_br()`: Get key country information for Brazil. 
+
+- `get_brazil_child_mortality()`: Get Brazil’s Under-5 Mortality Rate data from the World Bank.
+
+- `get_brazil_cpi()`: Get Brazil’s Consumer Price Index (2010 = 100) data from the World Bank.
+
+#### Some BrazilDataAPI Datasets
+
+- `Brasil_females_df`: Brazilian Female Demographics & Mortality
+A data frame containing population counts and mortality information for females in Brazil, disaggregated by federal states and abridged age groups, for the years 1991 and 2000.
+
+- `manaus_ts`: Monthly Average Heights of the Rio Negro at Manaus
+A univariate time series of monthly average river heights of the Rio Negro at Manaus.
+The series contains 1080 observations spanning 90 years, from January 1903 to December 1992.
+
+### ChileDataAPI
+
+The `ChileDataAPI` package provides a unified interface to access open data from multiple public RESTful APIs, including the *FINDIC API*, the *REST Countries API*, the *World Bank API*, and *Nager.Date*. With a focus on Chile, the package enables users to retrieve real-time or historical data such as financial indicators (**UF, UTM, Dollar, Euro, Yen, Copper price per pound, Bitcoin, IPSA index**), holidays, and international demographic and geopolitical information.  
+
+In addition to API-based data retrieval, `ChileDataAPI` includes a curated collection of datasets that cover diverse aspects of Chilean society and environment, such as human rights violations during the Pinochet regime, electoral data, census samples, health surveys, seismic events, territorial codes, and environmental measurements.  
+
+#### Some ChileDataAPI Functions
+
+- `get_chile_utm()`: Returns monthly values of the Unidad Tributaria Mensual (UTM).
+
+- `get_chile_yen()`: Provides the exchange rate of the Japanese Yen in CLP.
+
+- `get_country_info_cl()`: Get essential information about Chile or any other country by its full name
+
+
+#### Some ChileDataAPI Datasets
+
+- `census_chile_2017_df`: Data frame containing microdata from the 2017 Chilean census, specifically from the commune of San Pablo. The dataset includes 7,512 observations, all variable names and data values are in Spanish.
+
+- `chile_earthquakes_tbl_df`: Tibble containing information about significant (perceptible) earthquakes
+that occurred in Chile from January 1st, 2012 to the present.
+
+
+### ColombiAPI
+
+The `ColombiAPI` package provides a unified interface to access open data from the **API-Colombia**, **World Bank API**, **Nager.Date API**, and the **REST Countries API**, with a focus on **Colombia**. It allows users to retrieve up-to-date or historical information on topics such as geographic locations, cultural attractions, economic indicators, demographic data, national holidays, and key country-level details.
+
+In addition to API-access functions, the package includes a collection of curated datasets related to **Colombia**. These datasets cover a wide range of topics including air quality monitoring, education (public schools), business and holiday calendars, agricultural exports (coffee), regulatory information (cannabis licenses), climate data (Medellin rainfall), and urban development (Bogota shopping malls).
+
+#### Some ColombiAPI Functions
+
+- `get_colombia_cpi()`: Get Colombia's Consumer Price Index (2010 = 100) from World Bank.
+
+- `get_colombia_departments()`: Get Colombia's Departments from API Colombia.
+
+- `get_colombia_energy_use()`: Get Colombia's Energy Use (kg of oil equivalent per capita) from World Bank.
+
+#### Some ColombiAPI Datasets
+
+- `Bogota_business_Date`: A Date object listing official business dates in Bogota. 
+
+- `Colombia_coffee_tbl_df`: A tibble with details of Colombian coffee export and import for the year 2016.
+
+
+### MexicoDataAPI
+
+The `MexicoDataAPI` package provides a unified interface to access open data from the **World Bank API**, **REST Countries API**, and **Nager.Date API**, with a focus on Mexico. It allows users to retrieve up-to-date information on topics such as economic indicators, population figures, literacy rates, unemployment levels, basic geopolitical information, and official public holidays.
+
+In addition to API-access functions, the package includes a set of curated datasets related to **Mexico**. These cover areas such as air quality monitoring, state-level income surveys, postal abbreviations, election results, and regional forest classification.
+
+#### Some MexicoDataAPI Functions
+
+- `get_mexico_life_expectancy()`: Get Mexico's Life Expectancy from World Bank 
+
+- `get_mexico_literacy_rate()`: Get Mexico's Literacy Rate (Age 15+) from World Bank 
+
+- `get_mexico_population()`: Get Mexico's Population (Total) from World Bank 
+
+#### Some MexicoDataAPI Datasets
+
+- `mexico_elections_df`: Data frame containing a subset of the 2012 Mexico Elections Panel Study.
+
+- `mex_income_2016_tbl_df`: Tibble containing household-level income data and associated demographic characteristics from the 2016 ENIGH (Household Income and Expenditure Survey).
+
+
+### PeruAPIs
+
+The `PeruAPIs` package provides a unified interface to access open data from the **World Bank API**, **Nager.Date API**, and the **REST Countries API**, with a focus on **Peru**. It allows users to retrieve up-to-date or historical information on topics such as economic indicators, demographics, national holidays, and key geopolitical details.
+
+In addition to API-access functions, the package includes a curated collection of open datasets related to **Peru**. These datasets cover a wide range of topics including administrative divisions, electoral data, demographics, biodiversity and educational classifications.
+
+#### Some PeruAPIs Functions
+
+- `get_peru_literacy_rate()`: Get Peru’s Adult Literacy Rate data from the World Bank.
+
+- `get_peru_life_expectancy()`: Get Peru’s Life Expectancy at Birth data from the World Bank.
+
+- `get_peru_population()`: Get Peru’s Total Population data from the World Bank.
+
+#### Some PeruAPIs Datasets
+
+- **andean_migrants_health_df**: A data frame containing health data from a random sample of Peruvians born in the Andes mountains, but who have since migrated to lower altitudes.
+
+- **birds_peru_tbl_df**: A tibble containing an updated list of bird species recorded in Peru, based on the most recent taxonomic revisions by the South American.
+
+
+### Summary of Included Packages
+
+| Package        | Domain Focus |
+|----------------|--------------|
+| ArgentinAPI    | Provides a unified interface to access open data from **ArgentinaDatos API**, REST Countries API, and World Bank API, with a focus on **Argentina**. |
+| BrazilDataAPI  | Provides a unified interface to access open data from **BrasilAPI**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Brazil**. |
+| ChileDataAPI   | Provides a unified interface to access open data from **FINDIC API**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Chile**. |
+| ColombiAPI     | Provides a unified interface to access open data from **API-Colombia**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Colombia**. |
+| MexicoDataAPI  | Provides a unified interface to access open data from **World Bank API**, REST Countries API, and Nager.Date API, with a focus on **Mexico**. |
+| PeruAPIs       | Provides a unified interface to access open data from **World Bank API**, REST Countries API, and Nager.Date API, with a focus on **Peru**. |
+
+
+## Conclusion  
+
+The **Latamverse** represents a unified entry point for accessing and analyzing data from six major Latin American countries: **Argentina, Brazil, Chile, Colombia, Mexico, and Peru**. By combining real-time API connections with curated datasets, it simplifies the process of discovering, retrieving, and integrating diverse sources of information across key domains such as economics, demographics, public health, environment, politics, and culture.  
+
+This metapackage not only reduces the technical barriers associated with collecting data from multiple platforms but also promotes **reproducible research**, **comparative regional studies**, and **data-driven teaching practices**. Its modular structure, built upon country-specific packages, ensures flexibility and scalability, allowing users to focus on generating insights and advancing knowledge rather than on data wrangling.  
+
+Ultimately, the **Latamverse** provides researchers, educators, policymakers, and data scientists with a comprehensive ecosystem that enhances the study and understanding of Latin America, fostering collaboration and innovation within the global R community.  
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
