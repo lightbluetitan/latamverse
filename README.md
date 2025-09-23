@@ -1,6 +1,6 @@
 # Latamverse
 
-The **`Latamverse`** is a metapackage that brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from **Argentina**, **Brazil**, **Chile**, **Colombia**, **Mexico**, and **Peru**. It integrates both real-time and historical data retrieved through public RESTful APIs, such as *Nager.Date*, *World Bank API*, and *REST Countries API*, while also offering extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.  
+The **`Latamverse`** is a metapackage that brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from **Argentina**, **Brazil**, **Chile**, **Colombia**, and **Peru**. It integrates both real-time and historical data retrieved through public RESTful APIs, such as *Nager.Date*, *World Bank API*, and *REST Countries API*, while also offering extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.  
 
 ## Installation
 
@@ -71,8 +71,6 @@ By installing the `Latamverse` package this will attach the following packages t
 
 - `ColombiAPI`
 
-- `MexicoDataAPI`
-
 - `PeruAPIs`
 
 ## Included Packages in the Latamverse
@@ -96,11 +94,6 @@ The `ChileDataAPI` package provides a unified interface to access open data from
 ### ColombiAPI
 
 The `ColombiAPI` package provides a unified interface to access open data from the **API-Colombia**, **World Bank API**, **Nager.Date API**, and the **REST Countries API**, with a focus on **Colombia**. It allows users to retrieve up-to-date or historical information on topics such as geographic locations, cultural attractions, economic indicators, demographic data, national holidays, and key country-level details.
-
-
-### MexicoDataAPI
-
-The `MexicoDataAPI` package provides a unified interface to access open data from the **World Bank API**, **REST Countries API**, and **Nager.Date API**, with a focus on **Mexico**. It allows users to retrieve up-to-date information on topics such as economic indicators, population figures, literacy rates, unemployment levels, basic geopolitical information, and official public holidays.
 
 
 ### PeruAPIs

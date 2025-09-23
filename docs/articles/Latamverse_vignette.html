@@ -74,7 +74,6 @@
 <span><span class="co">#&gt; Loading required package: BrazilDataAPI</span></span>
 <span><span class="co">#&gt; Loading required package: ChileDataAPI</span></span>
 <span><span class="co">#&gt; Loading required package: ColombiAPI</span></span>
-<span><span class="co">#&gt; Loading required package: MexicoDataAPI</span></span>
 <span><span class="co">#&gt; Loading required package: PeruAPIs</span></span>
 <span><span class="co">#&gt; ═════════════════════════════ Welcome to Latamverse ════════════════════════════</span></span>
 <span><span class="co">#&gt; A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.</span></span>
@@ -82,7 +81,6 @@
 <span><span class="co">#&gt; ✔ BrazilDataAPI      v0.2.0</span></span>
 <span><span class="co">#&gt; ✔ ChileDataAPI       v0.2.0</span></span>
 <span><span class="co">#&gt; ✔ ColombiAPI         v0.2.0</span></span>
-<span><span class="co">#&gt; ✔ MexicoDataAPI      v0.2.0</span></span>
 <span><span class="co">#&gt; ✔ PeruAPIs           v0.1.0</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -91,15 +89,14 @@
 brings together a comprehensive collection of R packages providing
 access to APIs functions and curated datasets from
 <strong>Argentina</strong>, <strong>Brazil</strong>,
-<strong>Chile</strong>, <strong>Colombia</strong>,
-<strong>Mexico</strong>, and <strong>Peru</strong>. It integrates both
-real-time and historical data retrieved through public RESTful APIs,
-such as <em>Nager.Date</em>, <em>World Bank API</em>, and <em>REST
-Countries API</em>, while also offering extensive curated collections of
-open datasets covering economics, demographics, public health,
-environmental data, political indicators, social metrics, and cultural
-information.</p>
-<p>The <code>Latamverse</code> package installs and attaches six core
+<strong>Chile</strong>, <strong>Colombia</strong>, and
+<strong>Peru</strong>. It integrates both real-time and historical data
+retrieved through public RESTful APIs, such as <em>Nager.Date</em>,
+<em>World Bank API</em>, and <em>REST Countries API</em>, while also
+offering extensive curated collections of open datasets covering
+economics, demographics, public health, environmental data, political
+indicators, social metrics, and cultural information.</p>
+<p>The <code>Latamverse</code> package installs and attaches five core
 subpackages. The first is <strong>ArgentinAPI</strong>, which provides
 APIs functions and curated datasets for <strong>Argentina</strong>,
 including resources on exchange rates, inflation, political figures, and
@@ -113,14 +110,10 @@ national holidays. The fourth is <strong>ColombiAPI</strong>, which
 provides APIs functions and curated datasets for
 <strong>Colombia</strong>, featuring geographic locations, cultural
 attractions, economic indicators, demographic data, and national
-holidays. The fifth is <strong>MexicoDataAPI</strong>, which delivers
-APIs functions and curated datasets for <strong>Mexico</strong>,
-including economic indicators, population, literacy rates, unemployment,
-holidays, air quality, and state income surveys. Finally,
-<strong>PeruAPIs</strong> offers APIs functions and curated datasets for
-<strong>Peru</strong>, covering economic indicators, demographics,
-national holidays, administrative divisions, electoral data, and
-biodiversity.</p>
+holidays. Finally, <strong>PeruAPIs</strong> offers APIs functions and
+curated datasets for <strong>Peru</strong>, covering economic
+indicators, demographics, national holidays, administrative divisions,
+electoral data, and biodiversity.</p>
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
@@ -181,7 +174,6 @@ the following packages to your R session:</p>
 <li><p><code>BrazilDataAPI</code></p></li>
 <li><p><code>ChileDataAPI</code></p></li>
 <li><p><code>ColombiAPI</code></p></li>
-<li><p><code>MexicoDataAPI</code></p></li>
 <li><p><code>PeruAPIs</code></p></li>
 </ul>
 </div>
@@ -357,44 +349,6 @@ Colombian coffee export and import for the year 2016.</p></li>
 </div>
 </div>
 <div class="section level4">
-<h4 id="mexicodataapi">MexicoDataAPI<a class="anchor" aria-label="anchor" href="#mexicodataapi"></a>
-</h4>
-<p>The <code>MexicoDataAPI</code> package provides a unified interface
-to access open data from the <strong>World Bank API</strong>,
-<strong>REST Countries API</strong>, and <strong>Nager.Date
-API</strong>, with a focus on Mexico. It allows users to retrieve
-up-to-date information on topics such as economic indicators, population
-figures, literacy rates, unemployment levels, basic geopolitical
-information, and official public holidays.</p>
-<p>In addition to API-access functions, the package includes a set of
-curated datasets related to <strong>Mexico</strong>. These cover areas
-such as air quality monitoring, state-level income surveys, postal
-abbreviations, election results, and regional forest classification.</p>
-<div class="section level5">
-<h5 id="some-mexicodataapi-functions">Some MexicoDataAPI Functions<a class="anchor" aria-label="anchor" href="#some-mexicodataapi-functions"></a>
-</h5>
-<ul>
-<li><p><code><a href="https://lightbluetitan.github.io/mexicodataapi/reference/get_mexico_life_expectancy.html" class="external-link">get_mexico_life_expectancy()</a></code>: Get Mexico’s Life
-Expectancy from World Bank</p></li>
-<li><p><code><a href="https://lightbluetitan.github.io/mexicodataapi/reference/get_mexico_literacy_rate.html" class="external-link">get_mexico_literacy_rate()</a></code>: Get Mexico’s Literacy
-Rate (Age 15+) from World Bank</p></li>
-<li><p><code><a href="https://lightbluetitan.github.io/mexicodataapi/reference/get_mexico_population.html" class="external-link">get_mexico_population()</a></code>: Get Mexico’s Population
-(Total) from World Bank</p></li>
-</ul>
-</div>
-<div class="section level5">
-<h5 id="some-mexicodataapi-datasets">Some MexicoDataAPI Datasets<a class="anchor" aria-label="anchor" href="#some-mexicodataapi-datasets"></a>
-</h5>
-<ul>
-<li><p><code>mexico_elections_df</code>: Data frame containing a subset
-of the 2012 Mexico Elections Panel Study.</p></li>
-<li><p><code>mex_income_2016_tbl_df</code>: Tibble containing
-household-level income data and associated demographic characteristics
-from the 2016 ENIGH (Household Income and Expenditure Survey).</p></li>
-</ul>
-</div>
-</div>
-<div class="section level4">
 <h4 id="peruapis">PeruAPIs<a class="anchor" aria-label="anchor" href="#peruapis"></a>
 </h4>
 <p>The <code>PeruAPIs</code> package provides a unified interface to
@@ -473,12 +427,6 @@ with a focus on <strong>Chile</strong>.</td>
 World Bank API, with a focus on <strong>Colombia</strong>.</td>
 </tr>
 <tr class="odd">
-<td>MexicoDataAPI</td>
-<td>Provides a unified interface to access open data from <strong>World
-Bank API</strong>, REST Countries API, and Nager.Date API, with a focus
-on <strong>Mexico</strong>.</td>
-</tr>
-<tr class="even">
 <td>PeruAPIs</td>
 <td>Provides a unified interface to access open data from <strong>World
 Bank API</strong>, REST Countries API, and Nager.Date API, with a focus
@@ -492,12 +440,12 @@ on <strong>Peru</strong>.</td>
 <h3 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
 </h3>
 <p>The <strong>Latamverse</strong> represents a unified entry point for
-accessing and analyzing data from six major Latin American countries:
-<strong>Argentina, Brazil, Chile, Colombia, Mexico, and Peru</strong>.
-By combining real-time API connections with curated datasets, it
-simplifies the process of discovering, retrieving, and integrating
-diverse sources of information across key domains such as economics,
-demographics, public health, environment, politics, and culture.</p>
+accessing and analyzing data from five major Latin American countries:
+<strong>Argentina, Brazil, Chile, Colombia, and Peru</strong>. By
+combining real-time API connections with curated datasets, it simplifies
+the process of discovering, retrieving, and integrating diverse sources
+of information across key domains such as economics, demographics,
+public health, environment, politics, and culture.</p>
 <p>This metapackage not only reduces the technical barriers associated
 with collecting data from multiple platforms but also promotes
 <strong>reproducible research</strong>, <strong>comparative regional

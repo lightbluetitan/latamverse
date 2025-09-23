@@ -25,7 +25,7 @@
 #' @aliases Latamverse-package
 #' @title Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
 #' @description {
-#' This metapackage brings together a collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, Mexico, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data and more.
+#' This metapackage brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
 #' }
 #' @seealso {
 #' Useful links:

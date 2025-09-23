@@ -20,9 +20,9 @@ library(Latamverse)
 
 # Introduction
 
-The **`Latamverse`** is a metapackage that brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from **Argentina**, **Brazil**, **Chile**, **Colombia**, **Mexico**, and **Peru**. It integrates both real-time and historical data retrieved through public RESTful APIs, such as *Nager.Date*, *World Bank API*, and *REST Countries API*, while also offering extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.  
+The **`Latamverse`** is a metapackage that brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from **Argentina**, **Brazil**, **Chile**, **Colombia**, and **Peru**. It integrates both real-time and historical data retrieved through public RESTful APIs, such as *Nager.Date*, *World Bank API*, and *REST Countries API*, while also offering extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.  
 
-The `Latamverse` package installs and attaches six core subpackages. The first is **ArgentinAPI**, which provides APIs functions and curated datasets for **Argentina**, including resources on exchange rates, inflation, political figures, and national holidays. The second is **BrazilDataAPI**, which offers APIs functions and curated datasets for **Brazil**, with data on postal codes, banks, economic indicators, holidays, and company registrations. The third is **ChileDataAPI**, focused on **Chile**, covering financial indicators such as UF, UTM, Dollar, Euro, Yen, Copper, Bitcoin, the IPSA index, and national holidays. The fourth is **ColombiAPI**, which provides APIs functions and curated datasets for **Colombia**, featuring geographic locations, cultural attractions, economic indicators, demographic data, and national holidays. The fifth is **MexicoDataAPI**, which delivers APIs functions and curated datasets for **Mexico**, including economic indicators, population, literacy rates, unemployment, holidays, air quality, and state income surveys. Finally, **PeruAPIs** offers APIs functions and curated datasets for **Peru**, covering economic indicators, demographics, national holidays, administrative divisions, electoral data, and biodiversity.  
+The `Latamverse` package installs and attaches five core subpackages. The first is **ArgentinAPI**, which provides APIs functions and curated datasets for **Argentina**, including resources on exchange rates, inflation, political figures, and national holidays. The second is **BrazilDataAPI**, which offers APIs functions and curated datasets for **Brazil**, with data on postal codes, banks, economic indicators, holidays, and company registrations. The third is **ChileDataAPI**, focused on **Chile**, covering financial indicators such as UF, UTM, Dollar, Euro, Yen, Copper, Bitcoin, the IPSA index, and national holidays. The fourth is **ColombiAPI**, which provides APIs functions and curated datasets for **Colombia**, featuring geographic locations, cultural attractions, economic indicators, demographic data, and national holidays. Finally, **PeruAPIs** offers APIs functions and curated datasets for **Peru**, covering economic indicators, demographics, national holidays, administrative divisions, electoral data, and biodiversity.
  
 ## Installation
 
@@ -91,8 +91,6 @@ By installing the `Latamverse` package this will attach the following packages t
 - `ChileDataAPI`
 
 - `ColombiAPI`
-
-- `MexicoDataAPI`
 
 - `PeruAPIs`
 
@@ -188,27 +186,6 @@ In addition to API-access functions, the package includes a collection of curate
 - `Colombia_coffee_tbl_df`: A tibble with details of Colombian coffee export and import for the year 2016.
 
 
-### MexicoDataAPI
-
-The `MexicoDataAPI` package provides a unified interface to access open data from the **World Bank API**, **REST Countries API**, and **Nager.Date API**, with a focus on Mexico. It allows users to retrieve up-to-date information on topics such as economic indicators, population figures, literacy rates, unemployment levels, basic geopolitical information, and official public holidays.
-
-In addition to API-access functions, the package includes a set of curated datasets related to **Mexico**. These cover areas such as air quality monitoring, state-level income surveys, postal abbreviations, election results, and regional forest classification.
-
-#### Some MexicoDataAPI Functions
-
-- `get_mexico_life_expectancy()`: Get Mexico's Life Expectancy from World Bank 
-
-- `get_mexico_literacy_rate()`: Get Mexico's Literacy Rate (Age 15+) from World Bank 
-
-- `get_mexico_population()`: Get Mexico's Population (Total) from World Bank 
-
-#### Some MexicoDataAPI Datasets
-
-- `mexico_elections_df`: Data frame containing a subset of the 2012 Mexico Elections Panel Study.
-
-- `mex_income_2016_tbl_df`: Tibble containing household-level income data and associated demographic characteristics from the 2016 ENIGH (Household Income and Expenditure Survey).
-
-
 ### PeruAPIs
 
 The `PeruAPIs` package provides a unified interface to access open data from the **World Bank API**, **Nager.Date API**, and the **REST Countries API**, with a focus on **Peru**. It allows users to retrieve up-to-date or historical information on topics such as economic indicators, demographics, national holidays, and key geopolitical details.
@@ -238,16 +215,15 @@ In addition to API-access functions, the package includes a curated collection o
 | BrazilDataAPI  | Provides a unified interface to access open data from **BrasilAPI**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Brazil**. |
 | ChileDataAPI   | Provides a unified interface to access open data from **FINDIC API**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Chile**. |
 | ColombiAPI     | Provides a unified interface to access open data from **API-Colombia**, REST Countries API, Nager.Date API, and World Bank API, with a focus on **Colombia**. |
-| MexicoDataAPI  | Provides a unified interface to access open data from **World Bank API**, REST Countries API, and Nager.Date API, with a focus on **Mexico**. |
 | PeruAPIs       | Provides a unified interface to access open data from **World Bank API**, REST Countries API, and Nager.Date API, with a focus on **Peru**. |
 
 
 ## Conclusion  
 
-The **Latamverse** represents a unified entry point for accessing and analyzing data from six major Latin American countries: **Argentina, Brazil, Chile, Colombia, Mexico, and Peru**. By combining real-time API connections with curated datasets, it simplifies the process of discovering, retrieving, and integrating diverse sources of information across key domains such as economics, demographics, public health, environment, politics, and culture.  
+The **Latamverse** represents a unified entry point for accessing and analyzing data from five major Latin American countries: **Argentina, Brazil, Chile, Colombia, and Peru**. By combining real-time API connections with curated datasets, it simplifies the process of discovering, retrieving, and integrating diverse sources of information across key domains such as economics, demographics, public health, environment, politics, and culture.
 
-This metapackage not only reduces the technical barriers associated with collecting data from multiple platforms but also promotes **reproducible research**, **comparative regional studies**, and **data-driven teaching practices**. Its modular structure, built upon country-specific packages, ensures flexibility and scalability, allowing users to focus on generating insights and advancing knowledge rather than on data wrangling.  
+This metapackage not only reduces the technical barriers associated with collecting data from multiple platforms but also promotes **reproducible research**, **comparative regional studies**, and **data-driven teaching practices**. Its modular structure, built upon country-specific packages, ensures flexibility and scalability, allowing users to focus on generating insights and advancing knowledge rather than on data wrangling.
 
-Ultimately, the **Latamverse** provides researchers, educators, policymakers, and data scientists with a comprehensive ecosystem that enhances the study and understanding of Latin America, fostering collaboration and innovation within the global R community.  
+Ultimately, the **Latamverse** provides researchers, educators, policymakers, and data scientists with a comprehensive ecosystem that enhances the study and understanding of Latin America, fostering collaboration and innovation within the global R community.
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

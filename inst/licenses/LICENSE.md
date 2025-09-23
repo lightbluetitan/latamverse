@@ -15,7 +15,6 @@ You are free to:
 - `BrazilDataAPI` (GPL-3)
 - `ChileDataAPI` (GPL-3)
 - `ColombiAPI` (GPL-3)
-- `MexicoDataAPI` (GPL-3)
 - `PeruAPIs` (MIT)
 
 All included packages are published on CRAN (or GitHub) and are licensed under **GPL-3** or compatible licenses. Users should consult the individual package documentation for detailed licensing information.

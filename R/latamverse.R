@@ -15,11 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
 #' @import ArgentinAPI
 #' @import BrazilDataAPI
 #' @import ChileDataAPI
 #' @import ColombiAPI
-#' @import MexicoDataAPI
 #' @import PeruAPIs
 NULL
 
@@ -38,7 +38,6 @@ Latamverse <- function() {
     "BrazilDataAPI",
     "ChileDataAPI",
     "ColombiAPI",
-    "MexicoDataAPI",
     "PeruAPIs"
   )
 
@@ -63,7 +62,6 @@ Latamverse <- function() {
     "BrazilDataAPI",
     "ChileDataAPI",
     "ColombiAPI",
-    "MexicoDataAPI",
     "PeruAPIs"
   )
 

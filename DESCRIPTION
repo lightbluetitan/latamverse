@@ -3,22 +3,21 @@ Type: Package
 Title: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
 Version: 0.1.0
 Maintainer: Renzo Caceres Rossi <arenzocaceresrossi@gmail.com>
-Description: A metapackage that brings together a comprehensive collection 
+Description: A 'metapackage' that brings together a comprehensive collection 
     of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, 
-    Chile, Colombia, Mexico, and Peru. It includes real-time and historical data through public 
-    RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and 
+    Chile, Colombia, and Peru. It includes real-time and historical data through public 
+    'RESTful' APIs ('Nager.Date', World Bank API, REST Countries API, and country-specific APIs) and 
     extensive curated collections of open datasets covering economics, demographics, public health, 
     environmental data, political indicators, social metrics, and cultural information. 
     Designed to provide researchers, analysts, educators, and data scientists with 
-    centralized access to Latin American data sources, this metapackage facilitates 
+    centralized access to Latin American data sources, this 'metapackage' facilitates 
     reproducible research, comparative analysis, and teaching applications focused 
-    on these six major Latin American countries.
+    on these five major Latin American countries.
     Included packages:
     - 'ArgentinAPI': APIs functions and curated datasets for Argentina covering exchange rates, inflation, political figures, national holidays and more.
     - 'BrazilDataAPI': APIs functions and curated datasets for Brazil covering postal codes, banks, economic indicators, holidays, company registrations and more.
-    - 'ChileDataAPI': APIs functions and curated datasets for Chile covering financial indicators (UF, UTM, Dollar, Euro, Yen, Copper, Bitcoin, IPSA index), holidays and more.
+    - 'ChileDataAPI': APIs functions and curated datasets for Chile covering financial indicators ('UF', UTM, Dollar, Euro, Yen, Copper, Bitcoin, 'IPSA' index), holidays and more.
     - 'ColombiAPI': APIs functions and curated datasets for Colombia covering geographic locations, cultural attractions, economic indicators, demographic data, national holidays and more.
-    - 'MexicoDataAPI': APIs functions and curated datasets for Mexico covering economic indicators, population, literacy rates, unemployment, holidays, air quality, state income surveys and more.
     - 'PeruAPIs': APIs functions and curated datasets for Peru covering economic indicators, demographics, national holidays, administrative divisions, electoral data, biodiversity and more.
     For more information on the APIs, see: 
     'Nager.Date' <https://date.nager.at/Api>, 
@@ -39,7 +38,6 @@ Depends:
     BrazilDataAPI,
     ChileDataAPI,
     ColombiAPI,
-    MexicoDataAPI,
     PeruAPIs
 Imports:
     cli,
