@@ -25,13 +25,22 @@ NULL
 
 #' Print summary of the Latamverse metapackage
 #'
-#' This function displays a formatted list of the API packages included
-#' in the Latamverse metapackage and their respective versions.
+#' This function creates an object containing information about the API packages
+#' included in the Latamverse metapackage and their respective versions.
 #'
-#' @return Invisibly returns the names of the loaded packages.
+#' @return An object of class "latamverse_info" containing package names and versions.
 #' @importFrom cli rule symbol
 #' @importFrom utils packageVersion
 #' @export
+#' @examples
+#' \dontrun{
+#' # Display Latamverse package information
+#' Latamverse()
+#'
+#' # Store the information in an object
+#' info <- Latamverse()
+#' print(info)
+#' }
 Latamverse <- function() {
   pkgs <- c(
     "ArgentinAPI",
@@ -41,17 +50,39 @@ Latamverse <- function() {
     "PeruAPIs"
   )
 
-  cat(cli::rule(center = "Welcome to Latamverse", line = 2), "\n")
-  cat("A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.\n\n")
-
   versions <- vapply(pkgs, function(pkg) {
     as.character(utils::packageVersion(pkg))
   }, character(1))
 
-  pkg_info <- paste0(cli::symbol$tick, " ", format(pkgs, width = 18), " v", versions)
-  cat(paste(pkg_info, collapse = "\n"), "\n")
+  result <- list(
+    packages = pkgs,
+    versions = versions
+  )
 
-  invisible(pkgs)
+  class(result) <- "latamverse_info"
+  result
+}
+
+#' Print method for latamverse_info objects
+#'
+#' @param x An object of class "latamverse_info"
+#' @param ... Additional arguments (not used)
+#' @return Invisibly returns the input object
+#' @importFrom cli rule symbol
+#' @export
+print.latamverse_info <- function(x, ...) {
+  message(cli::rule(center = "Welcome to Latamverse", line = 2))
+  message("Latin American Countries via RESTful APIs and Curated Datasets.\n")
+
+  pkg_info <- paste0(
+    cli::symbol$tick, " ",
+    format(x$packages, width = 18),
+    " v", x$versions
+  )
+
+  message(paste(pkg_info, collapse = "\n"))
+
+  invisible(x)
 }
 
 #' @keywords internal
@@ -70,7 +101,7 @@ Latamverse <- function() {
   }, character(1))
 
   packageStartupMessage(cli::rule(center = "Welcome to Latamverse", line = 2))
-  packageStartupMessage("A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.\n")
+  packageStartupMessage("Latin American Countries via RESTful APIs and Curated Datasets.\n")
 
   pkg_info <- paste0(cli::symbol$tick, " ", format(pkgs, width = 18), " v", versions)
   lapply(pkg_info, packageStartupMessage)

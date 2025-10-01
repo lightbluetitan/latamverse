@@ -9,15 +9,15 @@
 Latamverse()
 }
 \value{
-Invisibly returns the names of the loaded packages.
+An object of class "latamverse_info" containing package names and versions.
 }
 \description{
 {
 This metapackage brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
 }
 
-This function displays a formatted list of the API packages included
-in the Latamverse metapackage and their respective versions.
+This function creates an object containing information about the API packages
+included in the Latamverse metapackage and their respective versions.
 }
 \details{
 Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
@@ -25,6 +25,16 @@ Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Cura
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.
+}
+\examples{
+\dontrun{
+# Display Latamverse package information
+Latamverse()
+
+# Store the information in an object
+info <- Latamverse()
+print(info)
+}
 }
 \seealso{
 {

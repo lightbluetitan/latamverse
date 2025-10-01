@@ -17,63 +17,49 @@
 
 # Latamverse
 
+
 library(testthat)
 library(Latamverse)
 
-test_that("Latamverse function returns correct package names invisibly", {
-  # Capturar output para evitar que se imprima durante las pruebas
-  result <- capture.output(invisible_result <- Latamverse())
+test_that("Latamverse function returns correct object structure", {
+  # Suprimir mensajes durante el test
+  result <- suppressMessages(Latamverse())
 
-  # Verificar que retorna los nombres correctos de paquetes (5, sin México)
+  # Verificar que retorna un objeto de clase latamverse_info
+  expect_s3_class(result, "latamverse_info")
+
+  # Verificar que es una lista con los componentes esperados
+  expect_type(result, "list")
+  expect_named(result, c("packages", "versions"))
+
+  # Verificar que contiene los 5 paquetes esperados
+  expect_length(result$packages, 5)
+  expect_length(result$versions, 5)
+})
+
+test_that("Latamverse function returns correct package names", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar los nombres correctos de paquetes
   expected_pkgs <- c(
     "ArgentinAPI",
     "BrazilDataAPI",
     "ChileDataAPI",
     "ColombiAPI",
-    "PeruAPIs"  # Sin MexicoDataAPI
+    "PeruAPIs"
   )
 
-  expect_equal(invisible_result, expected_pkgs)
-  expect_length(invisible_result, 5)  # Cambiado de 6 a 5
+  expect_equal(result$packages, expected_pkgs)
+  expect_length(result$packages, 5)
 })
 
-test_that("Latamverse function produces expected output structure", {
-  # Capturar todo el output
-  output <- capture.output(Latamverse())
+test_that("Latamverse messages can be suppressed", {
+  # CRÍTICO para CRAN: Verificar que los mensajes pueden ser suprimidos
+  expect_silent(suppressMessages(Latamverse()))
 
-  # Verificar que contiene elementos esperados del mensaje
-  expect_true(any(grepl("Welcome to Latamverse", output)))
-  expect_true(any(grepl("Metapackage for Latin American Countries", output)))
-
-  # Verificar que menciona cada paquete (5, sin México)
-  expected_pkgs <- c("ArgentinAPI", "BrazilDataAPI", "ChileDataAPI",
-                     "ColombiAPI", "PeruAPIs")  # Sin MexicoDataAPI
-
-  for (pkg in expected_pkgs) {
-    expect_true(any(grepl(pkg, output)),
-                info = paste("Package", pkg, "should appear in output"))
-  }
-})
-
-test_that("Latamverse function shows package information", {
-  output <- capture.output(Latamverse())
-
-  # Debe mostrar información de los paquetes
-  expect_true(length(output) > 3, "Should produce substantial output")
-
-  # Debe mostrar versiones
-  expect_true(any(grepl("v", output)), "Should show version numbers")
-})
-
-test_that("Latamverse function handles output formatting", {
-  output <- capture.output(Latamverse())
-
-  # Verificar que produce output sustancial
-  expect_true(length(output) > 5, "Should produce substantial output")
-
-  # Verificar que hay líneas no vacías
-  non_empty_lines <- sum(nchar(trimws(output)) > 0)
-  expect_true(non_empty_lines >= 5, "Should have multiple non-empty lines")
+  # Verificar que aún retorna el objeto correcto
+  result <- suppressMessages(Latamverse())
+  expect_s3_class(result, "latamverse_info")
 })
 
 test_that(".onAttach function exists and is properly defined", {
@@ -91,82 +77,137 @@ test_that(".onAttach function exists and is properly defined", {
 })
 
 test_that("Package list is consistent and complete", {
-  # Verificar que la lista de paquetes es consistente
-  output <- capture.output(result <- Latamverse())
+  result <- suppressMessages(Latamverse())
 
-  # Debe retornar exactamente 5 paquetes (cambiado de 6)
-  expect_length(result, 5)
+  # Verificar que contiene exactamente 5 paquetes
+  expect_length(result$packages, 5)
+  expect_length(result$versions, 5)
 
   # Todos deben ser character strings válidos
-  expect_true(all(is.character(result)))
-  expect_true(all(nchar(result) > 0))
+  expect_true(all(is.character(result$packages)))
+  expect_true(all(is.character(result$versions)))
+  expect_true(all(nchar(result$packages) > 0))
+  expect_true(all(nchar(result$versions) > 0))
 
-  # Verificar nombres específicos esperados (sin México)
+  # Verificar nombres específicos esperados
   expected_names <- c("ArgentinAPI", "BrazilDataAPI", "ChileDataAPI",
-                      "ColombiAPI", "PeruAPIs")  # Sin MexicoDataAPI
-  expect_setequal(result, expected_names)
+                      "ColombiAPI", "PeruAPIs")
+  expect_setequal(result$packages, expected_names)
 })
 
-test_that("Function output contains expected package names", {
-  output <- capture.output(Latamverse())
-  output_text <- paste(output, collapse = " ")
+test_that("Version numbers are properly formatted", {
+  result <- suppressMessages(Latamverse())
 
-  # Cada paquete debe aparecer en el output (5 paquetes, sin México)
-  packages_to_check <- c("ArgentinAPI", "BrazilDataAPI", "ChileDataAPI",
-                         "ColombiAPI", "PeruAPIs")  # Sin MexicoDataAPI
-
-  for (pkg in packages_to_check) {
-    expect_true(grepl(pkg, output_text),
-                info = paste("Package", pkg, "should appear in output"))
-  }
+  # Verificar que las versiones tienen formato válido (x.y.z)
+  version_pattern <- "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+  expect_true(all(grepl(version_pattern, result$versions)),
+              "All versions should follow x.y.z format")
 })
 
-test_that("Output contains proper welcome message", {
-  output <- capture.output(Latamverse())
-  output_text <- paste(output, collapse = " ")
+test_that("Print method exists and works", {
+  result <- suppressMessages(Latamverse())
 
-  # Verificar elementos clave del mensaje
-  expect_true(grepl("Welcome to Latamverse", output_text))
-  expect_true(grepl("Metapackage", output_text))
-  expect_true(grepl("Latin American", output_text))
+  # Verificar que el método print existe y funciona sin errores
+  expect_error(suppressMessages(print(result)), NA)
 })
 
-test_that("Function returns invisibly", {
-  # Verificar que la función efectivamente retorna de forma invisible
-  expect_invisible(Latamverse())
+test_that("Print method returns invisibly", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar que print retorna invisiblemente
+  expect_invisible(print(result))
+
+  # Verificar que retorna el mismo objeto
+  returned <- suppressMessages(print(result))
+  expect_identical(returned, result)
 })
 
-test_that("Output structure is consistent", {
+test_that("Function output is consistent across multiple calls", {
   # Ejecutar múltiples veces para verificar consistencia
-  output1 <- capture.output(result1 <- Latamverse())
-  output2 <- capture.output(result2 <- Latamverse())
+  result1 <- suppressMessages(Latamverse())
+  result2 <- suppressMessages(Latamverse())
 
-  # Los resultados deben ser consistentes
-  expect_equal(result1, result2)
-  expect_equal(length(output1), length(output2))
+  # Los resultados deben ser idénticos
+  expect_equal(result1$packages, result2$packages)
+  expect_equal(result1$versions, result2$versions)
 })
 
-test_that("Function handles cli symbols gracefully", {
-  output <- capture.output(Latamverse())
-
-  # La función debería ejecutarse sin errores relacionados con cli
-  expect_true(length(output) > 0)
-
-  # Debería contener al menos los nombres de paquetes
-  expect_true(any(grepl("ArgentinAPI", output)))
-  expect_true(any(grepl("PeruAPIs", output)))
+test_that("Function executes without errors", {
+  # Verificar que la función se ejecuta sin errores
+  expect_error(suppressMessages(Latamverse()), NA)
 })
 
-test_that("Return value contains expected package structure", {
-  result <- suppressMessages(capture.output(packages <- Latamverse()))
+test_that("Object structure allows data extraction", {
+  result <- suppressMessages(Latamverse())
 
-  # Verificar estructura del valor retornado
-  expect_is(packages, "character")
-  expect_named(packages, NULL)  # Vector sin nombres
+  # Verificar que se puede acceder a los componentes
+  expect_no_error(result$packages)
+  expect_no_error(result$versions)
 
-  # Verificar que todos son nombres válidos de paquetes
-  expect_true(all(grepl("^[A-Za-z][A-Za-z0-9]*[A-Za-z0-9]*$", packages)))
+  # Verificar que los componentes son vectores
+  expect_vector(result$packages)
+  expect_vector(result$versions)
 
-  # Verificar que son exactamente 5 paquetes
-  expect_length(packages, 5)
+  # Verificar que tienen nombres como atributo del vector versions
+  expect_true(is.character(names(result$versions)))
+})
+
+test_that("Package names are valid R package identifiers", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar que todos son nombres válidos de paquetes R
+  expect_true(all(grepl("^[A-Za-z][A-Za-z0-9.]*[A-Za-z0-9]$", result$packages)))
+})
+
+test_that("Function can be called multiple times without errors", {
+  # Verificar que múltiples llamadas funcionan
+  expect_no_error(suppressMessages(Latamverse()))
+  expect_no_error(suppressMessages(Latamverse()))
+  expect_no_error(suppressMessages(Latamverse()))
+})
+
+test_that("Return value is not NULL", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar que no retorna NULL
+  expect_false(is.null(result))
+
+  # Verificar que tiene contenido
+  expect_true(length(result) > 0)
+})
+
+test_that("Packages and versions have matching lengths", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar que cada paquete tiene su versión correspondiente
+  expect_equal(length(result$packages), length(result$versions))
+})
+
+test_that("All expected packages are present", {
+  result <- suppressMessages(Latamverse())
+
+  # Lista completa de paquetes esperados
+  all_expected <- c("ArgentinAPI", "BrazilDataAPI", "ChileDataAPI",
+                    "ColombiAPI", "PeruAPIs")
+
+  # Verificar que todos están presentes
+  expect_true(all(all_expected %in% result$packages))
+
+  # Verificar que no hay paquetes extra
+  expect_equal(length(result$packages), 5)
+})
+
+test_that("Object can be converted to data frame", {
+  result <- suppressMessages(Latamverse())
+
+  # Verificar que se puede crear un data frame con la información
+  df <- data.frame(
+    package = result$packages,
+    version = result$versions,
+    stringsAsFactors = FALSE
+  )
+
+  expect_s3_class(df, "data.frame")
+  expect_equal(nrow(df), 5)
+  expect_equal(ncol(df), 2)
 })
