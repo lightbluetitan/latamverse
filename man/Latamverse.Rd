@@ -4,7 +4,7 @@
 \name{Latamverse}
 \alias{Latamverse}
 \alias{Latamverse-package}
-\title{Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets}
+\title{Latamverse: Latin American Data via RESTful APIs and Curated Datasets}
 \usage{
 Latamverse()
 }
@@ -13,18 +13,18 @@ An object of class "latamverse_info" containing package names and versions.
 }
 \description{
 {
-This metapackage brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
+This package brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
 }
 
 This function creates an object containing information about the API packages
 included in the Latamverse metapackage and their respective versions.
 }
 \details{
-Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
+Latamverse: Latin American Data via RESTful APIs and Curated Datasets
 
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.
+Latin American Data via RESTful APIs and Curated Datasets.
 }
 \examples{
 \dontrun{

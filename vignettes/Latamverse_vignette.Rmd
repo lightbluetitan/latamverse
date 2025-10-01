@@ -1,8 +1,8 @@
 ---
-title: "Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets"
+title: "Latamverse: Latin American Data via RESTful APIs and Curated Datasets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets}
+  %\VignetteIndexEntry{Latamverse: Latin American Data via RESTful APIs and Curated Datasets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

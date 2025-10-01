@@ -1,4 +1,4 @@
-# Latamverse - A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
+# Latamverse - Latin American Data via RESTful APIs and Curated Datasets
 # Version 0.1.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #
@@ -15,17 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#' Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
+#' Latamverse: Latin American Data via RESTful APIs and Curated Datasets
 #'
 #' \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 #'
-#' A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets.
+#' Latin American Data via RESTful APIs and Curated Datasets.
 #'
 #' @name Latamverse
 #' @aliases Latamverse-package
-#' @title Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets
+#' @title Latamverse: Latin American Data via RESTful APIs and Curated Datasets
 #' @description {
-#' This metapackage brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
+#' This package brings together a comprehensive collection of R packages providing access to APIs functions and curated datasets from Argentina, Brazil, Chile, Colombia, and Peru. It includes real-time and historical data through public RESTful APIs (Nager.Date, World Bank API, REST Countries API, and country-specific APIs) and extensive curated collections of open datasets covering economics, demographics, public health, environmental data, political indicators, social metrics, and cultural information.
 #' }
 #' @seealso {
 #' Useful links:

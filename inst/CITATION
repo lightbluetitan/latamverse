@@ -1,6 +1,6 @@
 bibentry(
   bibtype = "Manual",
-  title = "Latamverse: A Metapackage for Latin American Countries via RESTful APIs and Curated Datasets",
+  title = "Latamverse: Latin American Data via RESTful APIs and Curated Datasets",
   author = person(
     given = "Renzo",
     family = "Caceres Rossi",
